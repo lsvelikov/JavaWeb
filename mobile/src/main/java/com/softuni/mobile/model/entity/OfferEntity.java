@@ -19,12 +19,18 @@ public class OfferEntity {
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "offer_id", columnDefinition = "VARCHAR(40)")
     private UUID id;
+    @Column(columnDefinition = "TEXT")
     private String description;
+    @Enumerated(EnumType.STRING)
     private Engine engine;
+    @Column(nullable = false)
     private String imageUrl;
     private Integer mileage;
+    @Column(nullable = false)
     private BigDecimal price;
+    @Enumerated(EnumType.STRING)
     private Transmission transmission;
+    @Column(nullable = false)
     private Integer year;
     @ManyToOne
     private ModelEntity model;
